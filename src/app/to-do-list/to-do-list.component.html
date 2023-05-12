@@ -1,0 +1,17 @@
+<main>
+    <div class="toDo__content">
+        <h1>To do List</h1>
+        <p>Insira abaixo a sua tarefa</p>
+        <div class="toDo__controller">
+            <input type="text" [(ngModel)] = "listItem">
+            <button (click)="insertOnList()">Inserir</button>
+        </div>
+        <p>{{ listItem }}</p>
+    </div>
+    
+    <ul class="toDo__list">
+        <li *ngFor="let item of toDoList; let i = index"> {{ item }} 
+            <button (click)="deletOnList(i)">Descartar</button>
+        </li>
+    </ul>
+</main>
