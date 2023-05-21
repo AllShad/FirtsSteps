@@ -3,15 +3,15 @@
         <h1>To do List</h1>
         <p>Insira abaixo a sua tarefa</p>
         <div class="toDo__controller">
-            <input type="text" [(ngModel)] = "listItem">
-            <button (click)="insertOnList()">Inserir</button>
+            <input placeholder="Máximo de caracteres: 35" maxlength="35" type="text" [(ngModel)] = "listItem" (keydown.enter)="insertOnList()" [ngClass]="invalid">
         </div>
         <p>{{ listItem }}</p>
     </div>
     
     <ul class="toDo__list">
-        <li *ngFor="let item of toDoList; let i = index"> {{ item }} 
-            <button (click)="deletOnList(i)">Descartar</button>
+        <li *ngFor="let item of toDoList; let i = index" class="toDo__listItem">
+            <app-list-item [item]=item>Loading</app-list-item>
+            <img src="../../assets/perto.png" alt="descartar"  class="toDo__discart" (click)="deletOnList(i)">   
         </li>
     </ul>
 </main>
